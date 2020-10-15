@@ -6,7 +6,7 @@ class PhotoContainer extends Component {
   render() {
     return(
         <div className="photo-container">
-            <h2>Results</h2>
+            <h2>{this.props.title ? this.props.title : 'Results'}</h2>
             <ul>
                 <Photo />
                 <Photo />

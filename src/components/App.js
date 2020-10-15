@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
 
 // API Key Import
 import apiKey from '../config/config';
@@ -11,11 +12,16 @@ import SearchForm from './SearchForm';
 
 const App = () => {
   return (
-    <div>
-      <SearchForm />
-      <Nav />
-      <PhotoContainer />
-    </div>
+    <BrowserRouter>
+      <div>
+        <SearchForm />
+        <Nav />
+        <Route exact path="/" component={PhotoContainer}/>
+        <Route exact path="/cats" component={ () => <PhotoContainer title="Cats"/>}/>
+        <Route exact path="/dogs" component={ () => <PhotoContainer title="Dogs"/>}/>
+        <Route exact path="/computers" component={ () => <PhotoContainer title="Computers"/>}/>
+      </div>
+    </BrowserRouter>
   );
 }
 
